@@ -138,6 +138,19 @@ Data: 2,847 UAV images + 5,072 OAM-TCD = 7,919 (7,400 train / 519 val); test 65 
 | Super-resolution | bicubic | Real-ESRGAN x2plus | `generate.upscale_image` |
 | FID / KID | feature stand-in | InceptionV3 | `metrics.fid_kid(use_inception=True)` |
 
+## Example
+
+<p align="center">
+  <img src="images/compare_ue5.jpg" width="32%" alt="UE5 geometric render">
+  <img src="images/compare_pcgdt.jpg" width="32%" alt="PC-GDT synthesis after PGPF">
+  <img src="images/compare_uav.jpg" width="32%" alt="Real UAV image of the target domain">
+</p>
+<p align="center">
+  <em>(a) UE5 geometric render</em> &nbsp;&nbsp;&nbsp; <em>(b) PC-GDT synthesis (after PGPF)</em> &nbsp;&nbsp;&nbsp; <em>(c) Real UAV image</em>
+</p>
+
+Domain comparison on the same scene (Fig. 3 of the paper): **(a)** deterministic UE5 render — the source of the condition maps C₁–C₆ and the inherited annotation A; **(b)** PC-GDT synthesis after post-generative physical filtering (PGPF); **(c)** real UAV image of the target domain. Solar azimuth and elevation are identical across all panels.
+
 ## Hardware
 
 - **Demo:** any CPU, ~4 GB RAM, 128×128, ≈1–3 min.
