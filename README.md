@@ -33,19 +33,33 @@ pc_gdt/
 ├── render.py       # Procedural target render (UE5/photo stand-in) + labels A
 ├── dataset.py      # Scene-disjoint datasets and splits
 ├── train.py        # VAE pretraining, AdamW + cosine warmup, checkpoints
-├── generate.py     # Sampling, ×2 upscaling, label transfer, manifest
+├── generate.py     # Sampling, ×2 upscaling, label transfer, shared write_sample()
 ├── filtering.py    # Measurements from images, PGPF run, reliability report
 ├── metrics.py      # IoU / azimuth, FID / KID, bootstrap CIs
 ├── export.py       # COCO export for DE-ViT
 ├── config.py       # demo / paper presets, DE-ViT hyperparameters
 ├── pipeline.py     # CLI: python -m pc_gdt.pipeline demo|paper
+├── baselines/      # Generative baselines for remote sensing (paper sec. 6.1)
+│   ├── __init__.py
+│   ├── base.py             # Shared protocol: denoiser, DDPM+CFG sampler, fine-tuning
+│   ├── diffusionsat.py     # DiffusionSat: metadata-only conditioning
+│   ├── diffcr.py           # DiffCR: C4 fed as the cloud mask + optical render
+│   └── run_baselines.py    # CLI: finetune -> generate -> PGPF -> COCO -> equalization
 └── tests/
     ├── __init__.py
-    └── test_all.py # Regression tests: geometry, conditions, model, PGPF, overfit
+    ├── test_all.py         # Regression tests: geometry, conditions, model, PGPF, overfit
+    └── test_baselines.py   # Baseline hints, no physical-condition leak, PGPF end-to-end
 
 .gitignore          # Excludes runs/, weights/, caches and virtualenv
 README.md           # Documentation
 requirements.txt    # numpy, torch, pillow (optional extras commented)
+```
+
+Baselines share the PC-GDT protocol (same scenes, fine-tuning set, budget, sampler and
+PGPF) and reuse `generate.write_sample`, so every method emits one manifest format:
+
+```bash
+python -m pc_gdt.baselines.run_baselines --methods diffusionsat diffcr --equalize 6
 ```
 
 Outputs in `runs/demo/`: `pc_controlnet.pt`, `train_log.json`, `report.json`, and `generated/` with images, condition maps, masks, `manifest.json`, `pgpf_report.json`, `accepted.json`, `coco_*.json`.
