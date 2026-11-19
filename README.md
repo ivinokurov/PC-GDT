@@ -50,6 +50,11 @@ pc_gdt/
     ├── test_all.py         # Regression tests: geometry, conditions, model, PGPF, overfit
     └── test_baselines.py   # Baseline hints, no physical-condition leak, PGPF end-to-end
 
+images/                     # Figures used in README (panels of paper Fig. 3)
+├── fig3_panel_a.jpg        # (a) UE5 geometric render
+├── fig3_panel_b.jpg        # (b) PC-GDT synthesis after PGPF
+└── fig3_panel_c.jpg        # (c) Real UAV image of the target domain
+
 .gitignore          # Excludes runs/, weights/, caches and virtualenv
 README.md           # Documentation
 requirements.txt    # numpy, torch, pillow (optional extras commented)
