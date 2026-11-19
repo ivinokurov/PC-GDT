@@ -141,9 +141,9 @@ Data: 2,847 UAV images + 5,072 OAM-TCD = 7,919 (7,400 train / 519 val); test 65 
 ## Example
 
 <p align="center">
-  <img src="images/fig3_panel_a.jpg.jpg" width="32%" alt="UE5 geometric render">
-  <img src="images/fig3_panel_b.jpg.jpg" width="32%" alt="PC-GDT synthesis after PGPF">
-  <img src="images/fig3_panel_c.jpg.jpg" width="32%" alt="Real UAV image of the target domain">
+  <img src="images/fig3_panel_a.jpg" width="32%" alt="UE5 geometric render">
+  <img src="images/fig3_panel_b.jpg" width="32%" alt="PC-GDT synthesis after PGPF">
+  <img src="images/fig3_panel_c.jpg" width="32%" alt="Real UAV image of the target domain">
 </p>
 <p align="center">
   <em>(a) UE5 geometric render</em> &nbsp;&nbsp;&nbsp; <em>(b) PC-GDT synthesis (after PGPF)</em> &nbsp;&nbsp;&nbsp; <em>(c) Real UAV image</em>
