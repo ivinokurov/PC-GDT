@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/badge/license-Apache--2.0-green)](#license)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](#quick-start)
 
-Synthesis of photorealistic nadir aerial images of low-rise residential areas with **physically consistent tree-crown shadows** on pitched roofs, plus automatic annotation for training the [DE-ViT](https://github.com/ivinokurov/DE-ViT) shadow detector.
+Synthesis of photorealistic aerial images of low-rise residential areas with **physically consistent tree-crown shadows** on pitched roofs, plus automatic annotation for training the [DE-ViT](https://github.com/ivinokurov/DE-ViT) shadow detector.
 
 Pipeline: deterministic UE5 (+Colosseum) render → six condition maps + sun embedding → latent diffusion (SD 2.1 + ControlNet + FiLM) → Real-ESRGAN ×2 → **PGPF** physical filtering → image + inherited labels $(\hat{I}, \mathcal{A})$.
 
